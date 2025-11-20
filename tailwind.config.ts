@@ -60,6 +60,12 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        avatar: {
+          blue: "hsl(var(--avatar-blue))",
+          purple: "hsl(var(--avatar-purple))",
+          teal: "hsl(var(--avatar-teal))",
+          indigo: "hsl(var(--avatar-indigo))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
