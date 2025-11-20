@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
-import nativeLogo from "@/assets/native-logo.png";
+import nativeLogo from "@/assets/native-logo.svg";
 
 const Hero = () => {
   return (
