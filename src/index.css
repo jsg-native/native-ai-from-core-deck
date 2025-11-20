@@ -9,88 +9,94 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 224 71% 4%;
+    --foreground: 230 15% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 224 71% 4%;
+    --card-foreground: 230 15% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 224 71% 4%;
+    --popover-foreground: 230 15% 15%;
 
     --primary: 263 70% 50%;
-    --primary-foreground: 210 40% 98%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217 33% 90%;
-    --secondary-foreground: 224 71% 4%;
+    --secondary: 220 14% 93%;
+    --secondary-foreground: 230 15% 15%;
 
-    --muted: 220 14.3% 95.9%;
-    --muted-foreground: 220 8.9% 46.1%;
+    --muted: 220 14% 95%;
+    --muted-foreground: 220 9% 50%;
 
     --accent: 188 94% 57%;
-    --accent-foreground: 224 71% 4%;
+    --accent-foreground: 230 15% 15%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
+    --border: 220 13% 88%;
+    --input: 220 13% 88%;
     --ring: 263 70% 50%;
 
     --radius: 0.75rem;
     
+    /* Sophisticated brand gradients */
     --gradient-primary: linear-gradient(135deg, hsl(263 70% 50%) 0%, hsl(217 91% 60%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 14% 96%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 14% 97%) 100%);
     --gradient-accent: linear-gradient(135deg, hsl(188 94% 57%) 0%, hsl(217 91% 60%) 100%);
     --glow-primary: 0 0 80px hsl(263 70% 50% / 0.3);
     --glow-accent: 0 0 60px hsl(188 94% 57% / 0.25);
+    
+    /* Avatar colors - sophisticated palette */
+    --avatar-blue: 217 91% 60%;
+    --avatar-purple: 263 70% 50%;
+    --avatar-teal: 188 94% 57%;
+    --avatar-indigo: 245 58% 51%;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
     --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
+    --foreground: 220 15% 92%;
 
     --card: 224 71% 6%;
-    --card-foreground: 213 31% 91%;
+    --card-foreground: 220 15% 92%;
 
     --popover: 224 71% 6%;
-    --popover-foreground: 213 31% 91%;
+    --popover-foreground: 220 15% 92%;
 
     --primary: 263 70% 50%;
-    --primary-foreground: 210 40% 98%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary-foreground: 220 15% 92%;
 
     --muted: 223 47% 11%;
-    --muted-foreground: 215.4 16.3% 56.9%;
+    --muted-foreground: 220 9% 60%;
 
     --accent: 188 94% 57%;
     --accent-foreground: 224 71% 4%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 215 27.9% 16.9%;
-    --input: 215 27.9% 16.9%;
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
     --ring: 263 70% 50%;
     
     --gradient-hero: linear-gradient(180deg, hsl(224 71% 4%) 0%, hsl(233 47% 7%) 100%);
+    
+    /* Avatar colors remain same for dark mode */
+    --avatar-blue: 217 91% 60%;
+    --avatar-purple: 263 70% 50%;
+    --avatar-teal: 188 94% 57%;
+    --avatar-indigo: 245 58% 51%;
   }
 }
 

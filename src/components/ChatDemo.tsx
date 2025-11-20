@@ -9,21 +9,21 @@ const messages = [
     initials: "MT",
     message: "Nice! I'll keep an eye on the conversion metrics",
     time: "7m ago",
-    avatar: "bg-blue-500",
+    avatar: "bg-avatar-blue",
   },
   {
     sender: "Sarah Chen",
     initials: "SC",
     message: "Looks good so far. Traffic is picking up nicely ✓",
     time: "6m ago",
-    avatar: "bg-purple-500",
+    avatar: "bg-avatar-purple",
   },
   {
     sender: "Alex Kim",
     initials: "AK",
     message: "@Native can you give us an update on today's performance?",
     time: "5m ago",
-    avatar: "bg-green-500",
+    avatar: "bg-avatar-teal",
   },
   {
     sender: "Native",
@@ -37,7 +37,7 @@ const messages = [
     initials: "MT",
     message: "Hmm, that conversion dip is concerning. Any ideas what's causing it?",
     time: "5m ago",
-    avatar: "bg-blue-500",
+    avatar: "bg-avatar-blue",
   },
 ];
 
