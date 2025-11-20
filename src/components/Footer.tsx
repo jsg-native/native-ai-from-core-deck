@@ -1,4 +1,4 @@
-import nativeLogo from "@/assets/native-logo.png";
+import nativeLogo from "@/assets/native-logo.svg";
 import { Mail, Linkedin, Twitter } from "lucide-react";
 
 const Footer = () => {
