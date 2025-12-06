@@ -4,6 +4,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Input } from "@/components/ui/input";
 import { Zap, Workflow, Brain, ArrowRight, Sparkles } from "lucide-react";
 import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const useCases = [
   {
@@ -34,19 +36,74 @@ const useCases = [
 
 const UseCases = () => {
   const [selectedUseCase, setSelectedUseCase] = useState<string | null>(null);
+  const [selectedUseCaseCategory, setSelectedUseCaseCategory] = useState<string | null>(null);
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleFeatureClick = async (useCaseTitle: string, feature: string) => {
+    const featureName = `${useCaseTitle}: ${feature}`;
+    setSelectedUseCase(featureName);
+    setSelectedUseCaseCategory(useCaseTitle);
+
+    // Track the click in the database
+    try {
+      await supabase.from('feature_clicks').insert({
+        feature_name: feature,
+        use_case: useCaseTitle,
+      });
+    } catch (error) {
+      console.error('Failed to track feature click:', error);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send to your backend
-    console.log(`Early access request for ${selectedUseCase}:`, email);
-    setSubmitted(true);
-    setTimeout(() => {
-      setSelectedUseCase(null);
-      setSubmitted(false);
-      setEmail("");
-    }, 2000);
+    if (!selectedUseCase || isSubmitting) return;
+
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase.from('early_access_signups').insert({
+        email: email.trim(),
+        feature_name: selectedUseCase,
+      });
+
+      if (error) {
+        if (error.code === '23505') {
+          // Duplicate entry
+          toast({
+            title: "Already signed up",
+            description: "You're already on the list for this feature!",
+          });
+        } else {
+          throw error;
+        }
+      } else {
+        setSubmitted(true);
+        toast({
+          title: "Success!",
+          description: "You're on the early access list.",
+        });
+      }
+
+      setTimeout(() => {
+        setSelectedUseCase(null);
+        setSelectedUseCaseCategory(null);
+        setSubmitted(false);
+        setEmail("");
+      }, 2000);
+    } catch (error) {
+      console.error('Failed to save signup:', error);
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -97,7 +154,7 @@ const UseCases = () => {
                     {useCase.features.map((feature, featureIndex) => (
                       <button
                         key={featureIndex}
-                        onClick={() => setSelectedUseCase(`${useCase.title}: ${feature}`)}
+                        onClick={() => handleFeatureClick(useCase.title, feature)}
                         className="w-full flex items-center justify-between p-3 rounded-lg bg-muted/30 border border-border hover:border-primary/50 hover:bg-primary/5 transition-all duration-200 group/feature cursor-pointer"
                       >
                         <span className="text-sm text-foreground/80 group-hover/feature:text-foreground transition-colors">
@@ -157,8 +214,12 @@ const UseCases = () => {
                 required
                 className="w-full"
               />
-              <Button type="submit" className="w-full bg-gradient-primary hover:opacity-90">
-                Get Early Access
+              <Button 
+                type="submit" 
+                className="w-full bg-gradient-primary hover:opacity-90"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Submitting..." : "Get Early Access"}
               </Button>
             </form>
           )}
