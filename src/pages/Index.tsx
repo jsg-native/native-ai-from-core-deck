@@ -1,21 +1,29 @@
-import Navigation from "@/components/Navigation";
-import Hero from "@/components/Hero";
-import UseCases from "@/components/UseCases";
-import ChatDemo from "@/components/ChatDemo";
-import IntegrationEcosystem from "@/components/IntegrationEcosystem";
-import CTASection from "@/components/CTASection";
-import Footer from "@/components/Footer";
+import NavigationSection from "@/components/landing/NavigationSection";
+import HeroSection from "@/components/landing/HeroSection";
+import WhatIsBLMSection from "@/components/landing/WhatIsBLMSection";
+import OwnershipSection from "@/components/landing/OwnershipSection";
+import HowItWorksSection from "@/components/landing/HowItWorksSection";
+import FeaturesSection from "@/components/landing/FeaturesSection";
+import CommandCenterSection from "@/components/landing/CommandCenterSection";
+import BuiltForSMBSection from "@/components/landing/BuiltForSMBSection";
+import ClosingCTASection from "@/components/landing/ClosingCTASection";
+import FooterSection from "@/components/landing/FooterSection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
-      <Navigation />
-      <Hero />
-      <UseCases />
-      <ChatDemo />
-      <IntegrationEcosystem />
-      <CTASection />
-      <Footer />
+    <div className="min-h-screen bg-background">
+      <NavigationSection />
+      <main className="pt-16">
+        <HeroSection />
+        <WhatIsBLMSection />
+        <OwnershipSection />
+        <HowItWorksSection />
+        <FeaturesSection />
+        <CommandCenterSection />
+        <BuiltForSMBSection />
+        <ClosingCTASection />
+      </main>
+      <FooterSection />
     </div>
   );
 };
