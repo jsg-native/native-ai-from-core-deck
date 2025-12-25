@@ -1,6 +1,7 @@
 import NavigationSection from "@/components/landing/NavigationSection";
 import HeroSection from "@/components/landing/HeroSection";
 import WhatIsBLMSection from "@/components/landing/WhatIsBLMSection";
+import InteractiveChatDemo from "@/components/landing/InteractiveChatDemo";
 import OwnershipSection from "@/components/landing/OwnershipSection";
 import HowItWorksSection from "@/components/landing/HowItWorksSection";
 import FeaturesSection from "@/components/landing/FeaturesSection";
@@ -16,6 +17,7 @@ const Index = () => {
       <main className="pt-16">
         <HeroSection />
         <WhatIsBLMSection />
+        <InteractiveChatDemo />
         <OwnershipSection />
         <HowItWorksSection />
         <FeaturesSection />
