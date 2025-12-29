@@ -29,15 +29,15 @@ const NavigationSection = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-strong">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <span className="text-2xl font-bold text-gradient">∀i</span>
             <span className="text-lg font-semibold">Native</span>
           </Link>
 
-          {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-8">
+          {/* Desktop nav - centered with offset to right */}
+          <div className="hidden md:flex items-center gap-8 flex-1 justify-center pl-24">
             {navLinks.map((link) => (
               link.href.startsWith('/') && !link.href.includes('#') ? (
                 <Link
